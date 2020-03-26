@@ -1,0 +1,74 @@
+<div class="row">
+  <div class="col-md-6 col-xs-12">
+    <h1>Upload order data</h1>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-6 col-xs-12">
+
+  [% IF (message = session.upload_message) %]
+    <div class="alert alert-[% message.type %]" role="alert">
+      [% message.message %]
+    </div>
+  [% END %]
+
+    <form id="upload" action="/upload/order_data" method="POST" accept=".csv,text/csv" enctype="multipart/form-data">
+      <div class="form-group">
+        <label for="data_file">Choose a file, then press 'Upload'</label>
+        <input id="data_file" name="data_file" type="file" class="form-control">
+      </div>  
+      <button type="submit" class="btn btn-default">Upload</button>
+    </form>
+
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-12 col-xs-12">
+
+  [% records = session.new_records %]
+
+  [% IF records && records.size > 0 %]
+
+    <table class="table table-striped table-bordered">
+      <caption>Order information ([% records.size %] total)</caption>
+      <thead>
+        <tr>
+          <th>Order Date</th>
+          <th>Order N<sup>o</sup></th>
+          <th>Customer Id</th>
+          <th>Customer First Name</th>
+          <th>Customer Last Name</th>
+          <th>Item Name</th>
+          <th>Item Manufacturer</th>
+          <th>Item Price</th>
+        </tr> 
+      </thead>
+      <tbody>
+        [% FOREACH record IN records %]
+          <tr>
+            <td>[% record.order.orderdate %]</td>
+            <td>[% record.order.ordernumber %]</td>
+            <td>[% record.customer.customerid %]</td>
+            <td>[% record.customer.customerfirstname %]</td>
+            <td>[% record.customer.customerlastname %]</td>
+            <td>[% record.item.itemname %]</td>
+            <td>[% record.manufacturer.manufacturername %]</td>
+            <td>[% record.item.formatted_price %]</td>
+          </tr>
+        [% END %]
+      </tbody>
+    </table>
+
+  [% END %]
+  </div>
+</div>
+
+[% IF orders_exist %] 
+<div class="row">
+    <div class="col-md-6 col-xs-12">
+      <a href="/report" class="btn btn-success">Generate report</a>
+    </div>  
+</div>
+[% END %]

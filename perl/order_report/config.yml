@@ -1,0 +1,36 @@
+appname: "OrderReport"
+layout: "main"
+charset: "UTF-8"
+template: "template_toolkit"
+
+engines:
+  template:
+    template_toolkit:
+      start_tag: '[%'
+      end_tag:   '%]'
+
+session: YAML
+engines:
+  session:
+    YAML:
+      session_dir: /tmp/dancer-sessions
+
+plugins:
+  DBIC:
+    default:
+      dsn: dbi:SQLite:dbname=../orders.db
+      schema_class: OrderReport::Schema
+      options:
+        quote_names: 1
+        quote_char: '"'
+
+csv:
+  header_mapping:
+    order date: order_date
+    customer id: customer_id
+    customer first_name: customer_first_name
+    customer last_name: customer_last_name
+    order number: order_number
+    item name: item_name
+    item price: item_price
+    item manufacturer: item_manufacturer_name

@@ -1,0 +1,47 @@
+<div class="row">
+  <div class="col-xs-12">
+
+  [% IF !orders.size %]
+
+    <div class="alert alert-info" role="alert">
+      <strong>No order data has been uploaded yet.</strong>
+    </div>
+
+  [% ELSE %]
+
+      <h1>Order report</h1>
+
+      [% FOREACH order in orders %]
+
+      <table class="order-report table table-striped table-bordered">
+        <caption>Order <strong>[% order.ordernumber %]</strong>, placed on [% order.orderdate %]</caption>
+        <thead>
+          <tr>
+            <th>Customer Id</th>
+            <th>Customer First Name</th>
+            <th>Customer Last Name</th>
+            <th>Item Name</th>
+            <th>Item Manufacturer</th>
+            <th>Item Price</th>
+          </tr> 
+        </thead>
+        <tbody>
+          [% FOREACH purchase IN order.purchases %]
+            <tr>
+              <td>[% purchase.customer.customerid %]</td>
+              <td>[% purchase.customer.customerfirstname %]</td>
+              <td>[% purchase.customer.customerlastname %]</td>
+              <td>[% purchase.item.itemname %]</td>
+              <td>[% purchase.manufacturer.manufacturername %]</td>
+              <td>[% purchase.item.formatted_price %]</td>
+            </tr>
+          [% END %]
+        </tbody>
+      </table>
+
+    [% END %]
+
+  [% END %]
+    </div>
+  </div>
+</div>
