@@ -2,11 +2,11 @@
 
 ## Python (written in 2013)
 
-(`/python`) A simple data parser script
+([/python](https://github.com/jkva/code_examples/tree/master/python)) A simple data parser script
 
 ## Perl (written in 2015)
 
-(`/perl`) A Perl backend developer challenge I answered for [All Around the World](https://allaroundtheworld.fr). Challenge description lives in `/perl/perl_developer_challenge.txt`.
+([/perl](https://github.com/jkva/code_examples/tree/master/perl)) A Perl backend developer challenge I answered for [All Around the World](https://allaroundtheworld.fr). Challenge description lives in [/perl/perl_developer_challenge.txt](https://github.com/jkva/code_examples/blob/master/perl/perl_developer_challenge.txt).
 
 ## Miscellaneous
 
