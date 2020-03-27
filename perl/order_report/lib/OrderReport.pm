@@ -37,7 +37,7 @@ post '/upload/order_data' => sub {
     try {
         my @csv_records = OrderReport::Upload->new(
             file_handle => $upload->file_handle,
-            )->process();
+        )->process();
 
         my @db_records = map { OrderReport::DB::insert_order($_) } @csv_records;
         

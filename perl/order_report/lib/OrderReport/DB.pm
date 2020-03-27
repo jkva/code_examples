@@ -49,7 +49,7 @@ class DB {
     }
 
     # Insert a new order record
-	fun insert_order (HashRef $order_info) {
+    fun insert_order (HashRef $order_info) {
         my $manufacturer = resultset('Manufacturer')->find_or_create({
             manufacturername => $order_info->{item_manufacturer_name}
         });        
@@ -79,7 +79,7 @@ class DB {
             customer     => $customer,
             item         => $item
         }
-	}
+    }
 }
 
 1;

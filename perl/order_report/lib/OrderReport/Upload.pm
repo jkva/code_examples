@@ -13,7 +13,7 @@ class Upload {
       is 	   => 'ro', 
       isa 	   => 'FileHandle',
       required => true
-      );
+    );
 
     method process () {
         my $sanitise_record = fun(Object $csv, HashRef $record) {
