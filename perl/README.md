@@ -19,7 +19,7 @@ Files in this project:
 * orders.csv - the originally supplied data file
 * example\_report.html - an example of a generated report. _In-line css was added for illustration purposes. See NOTES.md_
 * order_report/ - the application code
-* perl_developer.txt - the original assignment
+* perl_developer_challenge.txt - the original assignment
 
 ## Dependencies
 
